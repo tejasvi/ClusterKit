@@ -1,6 +1,6 @@
 """Helper functions for file I/O"""
 
-from collections import defaultdict
+import networkx as nx
 from IPython import embed
 
 def read_mtx(path):
@@ -9,15 +9,10 @@ def read_mtx(path):
     connections in form of dictionary.
     """
 
-    hashmap = defaultdict(list)
-    
-    with open(path, 'r') as f:
-        for line in f:
-            if line[0] != '%':
-                str_nodes = line.split()[:2]
-                node1, node2 = (int(x) for x in str_nodes)
-                hashmap[node1].append(node2)
-    
-    return hashmap
+    with open(path, 'rb') as f:
+        while comment := 1:
+            comment = f.readline()[0] == '%'
+
+        return nx.read_edgelist(f)
 
 embed()
