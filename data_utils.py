@@ -15,3 +15,6 @@ def read_mtx(path):
 
         return nx.read_edgelist(f)
 
+def read_weighted_mtx(path):
+    return nx.read_weighted_edgelist('bio-human-gene2.edges', comments='%').to_undirected()
+
