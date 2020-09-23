@@ -1,6 +1,7 @@
 """Helper functions for file I/O"""
 
 from collections import defaultdict
+from IPython import embed
 
 def read_mtx(path):
     """
@@ -13,7 +14,10 @@ def read_mtx(path):
     with open(path, 'r') as f:
         for line in f:
             if line[0] != '%':
-                node1, node2 = line.split()[:2]
+                str_nodes = line.split()[:2]
+                node1, node2 = (int(x) for x in str_nodes)
                 hashmap[node1].append(node2)
     
     return hashmap
+
+embed()
