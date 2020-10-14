@@ -4,6 +4,7 @@ import networkx as nx
 import networkx.algorithms.community as nx_comm
 import collections
 from matplotlib import pyplot as plt
+import operator
 
 plt.rcParams["figure.figsize"] = (20, 20)
 
