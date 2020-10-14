@@ -71,3 +71,15 @@ def girvan_newman(graph, thresh=10, k=None, size=500, width=1):
     pos = nx.spring_layout(graph, k=k, seed=0)
     plot_graph(graph, k=k, width=width, size=size, labels=True)
 
+
+def modularity(graph, thresh=1, k=None, size=500, width=1):
+    "thresh indicates size of community"
+    partition = community.best_partition(graph, resolution=thresh, random_state=0)
+    plot_graph(
+        graph=graph,
+        color=list(partition.values()),
+        width=width,
+        size=size,
+        labels=True,
+        k=k,
+    )
