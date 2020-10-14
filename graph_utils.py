@@ -38,7 +38,10 @@ def graph_info(graph, print_info=True):
         "num_nodes": graph.number_of_nodes(),
         "num_edges": graph.number_of_edges(),
         "avg_degree": sum(dict(graph.degree()).values()),
-        "clustering_coef": round(nx.average_clustering(graph), 3),
+        "clustering_coef": nx.average_clustering(graph),
+        "modularity": nx_comm.modularity(
+            graph, nx_comm.label_propagation_communities(graph)
+        ),
     }
     info["avg_degree"] = round(info["avg_degree"] / info["num_nodes"], 3)
 
