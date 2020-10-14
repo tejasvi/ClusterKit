@@ -89,3 +89,13 @@ def plot_degree_distribution(graph):
     )
     plt.axis("off")
     plt.show()
+
+
+def plot_edge_betweenness(graph):
+    ebet = nx.edge_betweenness_centrality(graph)
+    plt.yscale("log")
+    plt.hist(ebet.values())
+    sorted_ebet = sorted(ebet.items(), key=operator.itemgetter(1), reverse=True)
+    print("Pairs with highest betweennes:")
+    print(*[str(x[0]) + ": " + str(x[1]) for x in sorted_ebet[0:3]], sep="\n")
+
