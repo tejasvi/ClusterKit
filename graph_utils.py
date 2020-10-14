@@ -52,7 +52,9 @@ def graph_info(graph, print_info=True):
     return info
 
 
-get_modularity = nx_comm.modularity
+def plot_path_length_distribution(graph):
+    dist = nx.all_pairs_shortest_path_length(graph)
+    plt.hist([v for _, a in dist for v in a.values()], bins=7)
 
 
 def plot_degree_distribution(graph):
