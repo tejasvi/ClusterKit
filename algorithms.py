@@ -45,7 +45,7 @@ def agglomerative_hierarchical(graph, thresh=2.4, k=None, width=1, size=500):
     for i in range(len(membership)):
         partition[i] = membership[i]
 
-    print(len(set(partition.values())), "clusters")
+    print("Total ", len(set(partition.values())), "clusters detected.")
 
     plt.figure(figsize=(10, 10))
     plt.axis("off")
