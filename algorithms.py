@@ -59,3 +59,15 @@ def agglomerative_hierarchical(graph, thresh=2.4, k=None, width=1, size=500):
 
     hierarchy.dendrogram(Z)
     plt.show()
+
+
+def girvan_newman(graph, thresh=10, k=None, size=500, width=1):
+    "More threshold does more divisions. Thresh is num of edges to remove with highest betweenness"
+    graph = graph.copy()
+
+    for i in range(thresh):
+        graph = remove_top_ebet(graph)
+
+    pos = nx.spring_layout(graph, k=k, seed=0)
+    plot_graph(graph, k=k, width=width, size=size, labels=True)
+
