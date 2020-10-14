@@ -21,7 +21,7 @@ def plot_graph(graph, k=None, width=0.1, labels=False, size=1, color="r"):
     )
 
 
-def highlight_nodes(graph, nodes, k=2):
+def highlight_nodes(graph, nodes, k=None):
     plot_graph(graph, k=k)
     nx.draw_networkx(
         graph.subgraph(nodes),
@@ -30,6 +30,7 @@ def highlight_nodes(graph, nodes, k=2):
         node_color="red",
         font_color="green",
     )
+    plt.show()
 
 
 def graph_info(graph, print_info=True):
