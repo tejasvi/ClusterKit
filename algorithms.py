@@ -52,11 +52,9 @@ def agglomerative_hierarchical(graph, thresh=2.4, k=None, width=1, size=500):
 
     pos = nx.spring_layout(graph, k=k, seed=0)
 
-    nx.draw_networkx_nodes(
-        graph, pos, cmap=plt.cm.RdYlBu, node_color=list(partition.values())
+    plot_graph(
+        graph, k=k, width=width, size=size, labels=True, color=list(partition.values())
     )
-    nx.draw_networkx_edges(graph, pos, alpha=0.3)
-    nx.draw_networkx_labels(graph, pos)
     plt.show()
 
     hierarchy.dendrogram(Z)
