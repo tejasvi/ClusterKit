@@ -57,6 +57,13 @@ def plot_path_length_distribution(graph):
     plt.hist([v for _, a in dist for v in a.values()], bins=7)
 
 
+def get_farthest_points(graph):
+    dist = nx.all_pairs_shortest_path_length(graph)
+    return max(
+        ((k, k2, v2) for k, v in dist for k2, v2 in v.items()), key=lambda x: x[2]
+    )
+
+
 def plot_degree_distribution(graph):
     degree_sequence = sorted(
         [d for n, d in graph.degree()], reverse=True
