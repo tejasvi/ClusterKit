@@ -8,6 +8,7 @@ from graph_utils import remove_top_ebet
 from graph_utils import plot_graph
 import community
 
+plt.rcParams["figure.figsize"] = (20, 20)
 
 def agglomerative_hierarchical(graph, thresh=2.75, seed=0):
     ## Set-up the distance matrix D
