@@ -9,14 +9,15 @@ import operator
 plt.rcParams["figure.figsize"] = (20, 20)
 
 
-def plot_graph(graph, k=2):
+def plot_graph(graph, k=None, width=0.1, labels=False, size=1, color="r"):
     nx.draw_networkx(
         graph,
         pos=nx.spring_layout(graph, k=k, seed=0),
         arrows=False,
-        with_labels=False,
-        node_size=1,
-        width=0.1,
+        with_labels=labels,
+        node_size=size,
+        width=width,
+        node_color=color,
     )
 
 
