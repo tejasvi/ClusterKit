@@ -10,7 +10,9 @@ import community
 
 plt.rcParams["figure.figsize"] = (20, 20)
 
-def agglomerative_hierarchical(graph, thresh=2.75, seed=0):
+
+def agglomerative_hierarchical(graph, thresh=2.4, k=None, width=1, size=500):
+    "More threshold -> less clusters"
     ## Set-up the distance matrix D
     labels = list(graph.nodes())
     path_length = nx.all_pairs_shortest_path_length(graph)
