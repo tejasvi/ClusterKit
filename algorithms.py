@@ -50,7 +50,7 @@ def agglomerative_hierarchical(graph, thresh=2.4, k=None, width=1, size=500):
     plt.figure(figsize=(10, 10))
     plt.axis("off")
 
-    pos = nx.spring_layout(graph, k=0.5, seed=0)
+    pos = nx.spring_layout(graph, k=k, seed=0)
 
     nx.draw_networkx_nodes(
         graph, pos, cmap=plt.cm.RdYlBu, node_color=list(partition.values())
