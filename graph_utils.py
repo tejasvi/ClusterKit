@@ -47,7 +47,7 @@ def graph_info(graph, print_info=True):
 
     if print_info:
         for k, v in info.items():
-            print("".join(k.replace("_", " ")).capitalize() + ": ", v)
+            print("".join(k.replace("_", " ")).capitalize() + ": ", round(v, 4))
 
     return info
 
