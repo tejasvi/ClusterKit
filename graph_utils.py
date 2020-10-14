@@ -99,3 +99,10 @@ def plot_edge_betweenness(graph):
     print("Pairs with highest betweennes:")
     print(*[str(x[0]) + ": " + str(x[1]) for x in sorted_ebet[0:3]], sep="\n")
 
+
+def remove_top_ebet(graph):
+    ebet = nx.edge_betweenness_centrality(graph)
+    sorted_ebet = sorted(ebet.items(), key=operator.itemgetter(1), reverse=True)
+    edge_to_remove = sorted_ebet[0]
+    graph.remove_edge(*edge_to_remove[0])
+    return graph
